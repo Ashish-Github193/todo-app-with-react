@@ -1,0 +1,134 @@
+* {
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+#root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    min-height: 100vh;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: rgb(27, 29, 30);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #007bff;
+}
+
+button:hover {
+    background-color: #0069d9;
+    cursor: pointer;
+}
+
+.fa-trash-can {
+    color: #fff;
+    cursor: pointer;
+}
+
+.fa-trash-can:hover {
+    color: #ff0000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 150px;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, 0);
+    gap: 10px;
+}
+
+#task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+.item {
+    display: flex;
+    width: calc(100% - 20px);
+    padding: 10px;
+    align-items: center;
+    border-left: 5px solid green;
+    border-radius: 10px;
+}
+
+.item-title {
+    display: flex;
+    flex-grow: 1;
+    border: 0;
+    color: #bbb;
+    padding: 5px 10px 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.adder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input {
+    width: 500px;
+    padding: 10px;
+    border: 2px solid #444;
+    border-radius: 5px;
+}
+
+.unsaved {
+    background-color: #ff0000;
+}
+
+.unsaved:hover {
+    background-color: #cc0000;
+}
+
+.dropdown {
+    background-color: #007bff;
+    padding: 9px 10px 9px 10px;
+    border-radius: 5px;
+    border: 0;
+}
+
+.dropdown:hover {
+    background-color: #0069d9;
+}
+
+.dropdown option {
+    background-color: #333;
+}
+
+.do-first {
+    border-left: 5px solid #e50d0d;
+}
+
+.schedule {
+    border-left: 5px solid #0d59e5;
+}
+
+.delegate {
+    border-left: 5px solid #0de559;
+}
+
+.eleminate {
+    border-left: 5px solid #757575;
+}
