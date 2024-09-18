@@ -11,19 +11,10 @@ function fetchLocalStorage() {
   return [];
 }
 
-function sortWithPriority(items) {
-  return items.sort((a, b) => a.priority - b.priority);
-}
-
 function App() {
   const [items, setItems] = useState(fetchLocalStorage());
 
-  function getItemsLength() {
-    return items.length + 1;
-  }
-
   useEffect(() => {
-    setItems(sortWithPriority(items));
     const task_items = JSON.stringify(items);
     localStorage.setItem("task_items", task_items);
   }, [items]);
@@ -32,10 +23,7 @@ function App() {
     <>
       <div className="container">
         <h1>Todo List</h1>
-        <Adder
-          setItems={(newItem) => setItems([...items, newItem])}
-          getItemsLength={getItemsLength}
-        />
+        <Adder items={items} setItems={setItems} />
         <Items items={items} setItems={setItems} />
       </div>
     </>

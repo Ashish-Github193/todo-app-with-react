@@ -1,7 +1,11 @@
 import { useRef } from "react";
 import PropTypes from "prop-types";
 
-function Adder({ setItems, getItemsLength }) {
+function sortWithPriority(items) {
+  return items.sort((a, b) => a.priority - b.priority);
+}
+
+function Adder({ items, setItems }) {
   const inputRef = useRef(null);
   const priorityRef = useRef(null);
 
@@ -13,13 +17,16 @@ function Adder({ setItems, getItemsLength }) {
     const priority = Number(priorityRef.current.value);
 
     if (task_title.trim() !== "") {
-      const _id = getItemsLength() + 1;
-      setItems({
+      const _id = items.length + 1;
+      const newItem = {
         id: _id,
         label: task_title,
         status: status,
         priority: priority,
-      });
+      };
+
+      const newItems = sortWithPriority([...items, newItem]);
+      setItems(newItems);
     }
 
     // Clear input
@@ -48,8 +55,15 @@ function Adder({ setItems, getItemsLength }) {
 }
 
 Adder.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      label: PropTypes.string.isRequired,
+      status: PropTypes.bool,
+      priority: PropTypes.number,
+    }),
+  ).isRequired,
   setItems: PropTypes.func.isRequired,
-  getItemsLength: PropTypes.func.isRequired,
 };
 
 export default Adder;

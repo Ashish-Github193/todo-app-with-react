@@ -18,6 +18,7 @@ function Item({ label, status, priority, deleteHandler, handleStatusChange }) {
   };
 
   const priorityClass = priorityClassMapping[priority];
+  const done = status ? " done" : "";
 
   return (
     <div className={"item" + " " + priorityClass}>
@@ -27,11 +28,11 @@ function Item({ label, status, priority, deleteHandler, handleStatusChange }) {
         onChange={handleClick}
         checked={localStatus}
       />
-      <p className="item-title">{label}</p>
+      <p className={"item-title" + done}>{label}</p>
       <button
         className="delete-button"
         onClick={deleteHandler}
-        aria-label={`Delete ${label}`}
+        aria-label="Delete"
       >
         <i className="fa-regular fa-trash-can"></i>
       </button>
